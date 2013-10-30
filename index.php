@@ -10,7 +10,7 @@
 <?php
 include_once('model.php');
 
-$rolldice = new Roll();
+
 
 ?>
 
@@ -29,16 +29,17 @@ $rolldice = new Roll();
 if (isset($_POST['Guess'])) {
           $rolldice->SetPlayerRoll();
 		  echo "Result last game<br>";
-		  echo "House Roll: <strong>". $rolldice->HouseRoll . "</strong>"; 
+		  echo "House Roll: ". $rolldice->HouseRoll ; 
 		  echo " YOUr Roll " . $rolldice->PlayerRoll;
 		  //echo $_POST['Guess'];
 
-echo "<p>" . $rolldice->GetWinner() . "</p>";
-$rolldice->GetHouseRoll();
+		echo "<p>" . $rolldice->GetWinner() . "</p>";
+		$rolldice->GetHouseRoll();
 }
-
-else
-$rolldice->GetHouseRoll();
+else {
+	$rolldice = new Roll();
+	$rolldice->GetHouseRoll();
+}
 
 ?>
 <h2>My Roll: <strong><?=$rolldice->HouseRoll ?></strong></h2>
