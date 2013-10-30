@@ -23,32 +23,40 @@ $rolldice = new Roll();
 
 
 
-<h2>My Roll: <strong><?=$rolldice->HouseRoll ?></strong></h2>
+
 
 <?php
-if (isset($_POST['dice'])) {
+if (isset($_POST['Guess'])) {
           $rolldice->SetPlayerRoll();
-		  echo "ROLdddL " . $rolldice->PlayerRoll;
+		  echo "Result last game<br>";
+		  echo "House Roll: ". $rolldice->HouseRoll; 
+		  echo " YOUr Roll " . $rolldice->PlayerRoll;
+		  //echo $_POST['Guess'];
+
+echo "<p>" . $rolldice->GetWinner() . "</p>";
+
+
 }
 
-?>
 
+?>
+<h2>My Roll: <strong><?=$rolldice->HouseRoll ?></strong></h2>
 <form action="#" method="post" name="dice">
 
   <table width="200">
     <tr>
       <td><label>
-        <input type="radio" name="Guess" value="2" id="Guess_0">
+        <input type="radio" name="Guess" value="2" id="GuessHigh" checked >
         High</label></td>
     </tr>
     <tr>
       <td><label>
-        <input type="radio" name="Guess" value="1" id="Guess_1">
+        <input type="radio" name="Guess" value="1" id="GuessLow">
         Low</label></td>
     </tr>
     <tr>
       <td>ROLL
-        <input type="submit" name="guess" id="guess" value="Submit"></td>
+        <input type="Submit" name="submit" id="submit" value="Submit"></td>
     </tr>
   </table>
 

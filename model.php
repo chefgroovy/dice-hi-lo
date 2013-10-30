@@ -1,8 +1,8 @@
 <?php
 
-define('WINNER_PLAYER',1);
-define('WINNER_HOUSE',1);
-define('WINNER_TIE',1);
+define('WINNER_PLAYER','WINNER_PLAYER');
+define('WINNER_HOUSE','WINNER_HOUSE');
+define('WINNER_TIE','WINNER_TIE');
 
 
 class Roll {
@@ -33,7 +33,7 @@ if ($this->HouseRoll > $this->PlayerRoll)
 elseif ($this->HouseRoll < $this->PlayerRoll)
 	return(WINNER_PLAYER);
 elseif ($this->HouseRoll = $this->PlayerRoll)
-	return(TIE);
+	return(WINNER_TIE);
 	
 }
 	
