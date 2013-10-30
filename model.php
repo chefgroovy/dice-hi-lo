@@ -13,8 +13,7 @@ class Roll {
 public $HouseRoll, $PlayerRoll, $tiewinner="PLAYER";
 
 public function __Construct() {
-	$roll = rand(1,6);
-	$this->HouseRoll = rand(1,6);
+
 }
 
 public function GetHouseRoll()
@@ -31,8 +30,8 @@ public function SetPlayerRoll()
 	$this->SwapTieWinner();
 }
 
-private function SwaptTieWinner() {
-	if ($this->tiewinner = HOUSE)
+private function SwapTieWinner() {
+	if ($this->tiewinner == HOUSE)
 		$this->tiewinner = PLAYER;
 	else
 		$this->tiewinner = HOUSE;
@@ -45,7 +44,7 @@ if ($this->HouseRoll > $this->PlayerRoll)
 	return(WINNER_HOUSE);
 elseif ($this->HouseRoll < $this->PlayerRoll)
 	return(WINNER_PLAYER);
-elseif ($this->HouseRoll = $this->PlayerRoll) {
+elseif ($this->HouseRoll == $this->PlayerRoll) {
 	if ($this->tiewinner = PLAYER)
 		return(WINNER_PLAYER);
 	else

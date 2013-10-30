@@ -29,18 +29,16 @@ $rolldice = new Roll();
 if (isset($_POST['Guess'])) {
           $rolldice->SetPlayerRoll();
 		  echo "Result last game<br>";
-		  echo "House Roll: ". $rolldice->HouseRoll; 
+		  echo "House Roll: <strong>". $rolldice->HouseRoll . "</strong>"; 
 		  echo " YOUr Roll " . $rolldice->PlayerRoll;
 		  //echo $_POST['Guess'];
 
-
 echo "<p>" . $rolldice->GetWinner() . "</p>";
-
-
-
+$rolldice->GetHouseRoll();
 }
 
-
+else
+$rolldice->GetHouseRoll();
 
 ?>
 <h2>My Roll: <strong><?=$rolldice->HouseRoll ?></strong></h2>
