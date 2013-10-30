@@ -1,0 +1,4 @@
+<?php
+	$rolldice = new Roll();
+	
+?>

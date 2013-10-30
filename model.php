@@ -11,6 +11,7 @@ define('PLAYER','PLAYER');
 class Roll {
 
 public $HouseRoll, $PlayerRoll, $tiewinner="PLAYER";
+public $lastgamehouse, $lastgameplayer;
 
 public function __Construct() {
 
@@ -18,16 +19,16 @@ public function __Construct() {
 
 public function GetHouseRoll()
 {
-	$roll = rand(1,6);
+	$this->lastgamehouse = $this->HouseRoll;
 	$this->HouseRoll = rand(1,6);
-	
+	echo "TEST HOUSE " . $this->HouseRoll;
 }
 
 public function SetPlayerRoll()
 {
-	$roll = rand(1,6);
+	$this->lastgameplayer = $this->PlayerRoll;
 	$this->PlayerRoll = rand(1,6);
-	$this->SwapTieWinner();
+
 }
 
 private function SwapTieWinner() {
@@ -41,15 +42,17 @@ private function SwapTieWinner() {
 public function GetWinner() {
 
 if ($this->HouseRoll > $this->PlayerRoll)
-	return(WINNER_HOUSE);
+	$winner = WINNER_HOUSE;
 elseif ($this->HouseRoll < $this->PlayerRoll)
-	return(WINNER_PLAYER);
+	$winner = WINNER_PLAYER;
 elseif ($this->HouseRoll == $this->PlayerRoll) {
-	if ($this->tiewinner = PLAYER)
-		return(WINNER_PLAYER);
+	if ($this->tiewinner == PLAYER)
+		$winner = WINNER_PLAYER;
 	else
-		return(WINNER_HOUSE);
+		$winner=WINNER_HOUSE;
 
+$this->SwapTieWinner();
+return $winner;
 }
 
 }

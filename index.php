@@ -9,8 +9,7 @@
 
 <?php
 include_once('model.php');
-
-
+include_once('roll.php');
 
 ?>
 
@@ -22,25 +21,25 @@ include_once('model.php');
 <div id="main_body">
 
 
-
-
-
 <?php
 if (isset($_POST['Guess'])) {
           $rolldice->SetPlayerRoll();
-		  echo "Result last game<br>";
-		  echo "House Roll: ". $rolldice->HouseRoll ; 
+		  ?>
+		  <p>Result last game</p>
+		  House Roll: <?=$rolldice->lastgamehouse ?> 
+		  <?php
 		  echo " YOUr Roll " . $rolldice->PlayerRoll;
-		  //echo $_POST['Guess'];
+	
 
-		echo "<p>" . $rolldice->GetWinner() . "</p>";
-		$rolldice->GetHouseRoll();
+		?>
+       <p> WINNER: <?= $rolldice->GetWinner() ?> </p>
+	<?php	
 }
 else {
-	$rolldice = new Roll();
+echo "ELSE";
 	$rolldice->GetHouseRoll();
 }
-
+$rolldice->GetHouseRoll();
 ?>
 <h2>My Roll: <strong><?=$rolldice->HouseRoll ?></strong></h2>
 <h5>Tie Winner will be: <?=$rolldice->tiewinner ?></h5>
@@ -67,19 +66,6 @@ else {
 
 
 <hr>
-
-<?php
- 
-if (isset($_POST['roll'])) {
-          $rand = rand(1, 6);
-          echo 'You rolled a '.$rand;
- }
- 
-?>
- 
-<form action="index.php" method="POST">
-             <input type="Submit" name="roll" value="Roll dice">
- </form>
 
 </div>
 <hr>
