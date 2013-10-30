@@ -33,14 +33,18 @@ if (isset($_POST['Guess'])) {
 		  echo " YOUr Roll " . $rolldice->PlayerRoll;
 		  //echo $_POST['Guess'];
 
+
 echo "<p>" . $rolldice->GetWinner() . "</p>";
+
 
 
 }
 
 
+
 ?>
 <h2>My Roll: <strong><?=$rolldice->HouseRoll ?></strong></h2>
+<h5>Tie Winner will be: <?=$rolldice->tiewinner ?></h5>
 <form action="#" method="post" name="dice">
 
   <table width="200">
