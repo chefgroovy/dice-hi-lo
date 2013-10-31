@@ -12,8 +12,10 @@
 
 	$FRAMEWORK = true;
 	define('DEBUG', true);
-	define('HOME',"../index.php");
+	define('HOME','../index.php');
 	
+	$_HOMEDIR = '../index.php';
+
 include_once('model.php');
 include_once('roll.php');
 include_once('controller.php');
@@ -35,7 +37,7 @@ include_once('controller.php');
 $rolldice = new Roll();
 
 if (isset($_POST['Guess'])) {
-          $rolldice->SetPlayerRoll();
+          $rolldice->DoHouseRoll();
 		  ?>
 		  <p>Result last game</p>
           <? $rolldice->ShowResults ?>
@@ -53,9 +55,9 @@ if (isset($_POST['Guess'])) {
 }
 else {
 echo "ELSE";
-	$rolldice->GetHouseRoll();
+	$rolldice->DoHouseRoll();
 }
-$rolldice->GetHouseRoll();
+$rolldice->DoHouseRoll();
 ?>
 <h2>My Roll: <strong><?=$rolldice->HouseRoll ?></strong></h2>
 <h5>Tie Winner will be: <?=$rolldice->tiewinner ?></h5>

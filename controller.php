@@ -1,4 +1,7 @@
 
 <?php  
-define('HOME','../index.php');
-if (!$FRAMEWORK) { header('Location: ' . HOME); exit();} ?>
+//define('HOME','../index.php');
+//echo $_HOMEDIR;
+//echo "CONTROLLER";
+//echo HOME;
+if (!$FRAMEWORK) { header('Location: index.php'); exit();} ?>
