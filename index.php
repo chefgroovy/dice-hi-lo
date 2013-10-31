@@ -9,8 +9,16 @@
 
 
 <?php
+
+	$FRAMEWORK = true;
+	define('DEBUG', true);
+	define('HOME',"../index.php");
+	
 include_once('model.php');
 include_once('roll.php');
+include_once('controller.php');
+
+
 
 ?>
 
@@ -23,17 +31,24 @@ include_once('roll.php');
 
 
 <?php
+
+$rolldice = new Roll();
+
 if (isset($_POST['Guess'])) {
           $rolldice->SetPlayerRoll();
 		  ?>
 		  <p>Result last game</p>
-		  House Roll: <?=$rolldice->lastgamehouse ?> 
+          <? $rolldice->ShowResults ?>
+          
+		  House Roll: 
+		  <? echo $rolldice->GetHouseRoll(); ?>
+
 		  <?php
 		  echo " YOUr Roll " . $rolldice->PlayerRoll;
 	
 
 		?>
-       <p> WINNER: <?= $rolldice->GetWinner() ?> </p>
+       <p> WINNER: <?= $rolldice->DeclareWinner() ?> </p>
 	<?php	
 }
 else {
